@@ -3,7 +3,6 @@ package com.example.pureboot.controller;
 import com.example.pureboot.model.Sp;
 import com.example.pureboot.model.req.SpRequest;
 import com.example.pureboot.svc.SpService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ public class PureBootController {
         return spService.getAllSp();
     }
 
-    @GetMapping("/guy/{id}")
+    @GetMapping("/oneguy/{id}")
     public ResponseEntity<Sp> getSingleSp(@PathVariable("id") UUID spId){
         Optional<Sp> s = spService.getSpById(spId);
             return ResponseEntity.ok(s.get());
