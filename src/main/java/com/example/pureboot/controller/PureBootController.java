@@ -20,7 +20,7 @@ public class PureBootController {
         this.spService = spService;
     }
 
-    @GetMapping("/allguy")
+    @GetMapping("/guy")
     public List<Sp> getAllGuys(){
         return spService.getAllSp();
     }
