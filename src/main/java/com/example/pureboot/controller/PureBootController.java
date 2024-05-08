@@ -25,7 +25,7 @@ public class PureBootController {
         return spService.getAllSp();
     }
 
-    @GetMapping("/guy/{id}")
+    @GetMapping("/oneguy/{id}")
     public ResponseEntity<Sp> getSingleSp(@PathVariable("id") UUID spId){
         Optional<Sp> s = spService.getSpById(spId);
             return ResponseEntity.ok(s.get());
