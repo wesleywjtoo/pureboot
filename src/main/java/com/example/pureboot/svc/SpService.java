@@ -18,7 +18,7 @@ public class SpService {
     private PureBootRepo pureBootRepo;
 
     public List<Sp> getAllSp(){
-        Sort spSort = Sort.by("dateJoin").descending();
+        Sort spSort = Sort.by("dateJoin").ascending();
         return pureBootRepo.findAll(spSort);
     }
 
