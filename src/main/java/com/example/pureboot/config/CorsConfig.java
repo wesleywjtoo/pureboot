@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{
 
-    @Value("${CORS_ALLOWED_ORIGIN:https://pureboot-wesley2lps-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com}")
+    @Value("${CORS_ALLOWED_ORIGIN:https://simplefe-wesley2lps-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/}")
     private String[] allowedOrigin;
 
     @Bean
