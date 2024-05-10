@@ -17,7 +17,6 @@ import java.util.UUID;
 public class Sp {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "spid")
     private UUID spId;
 

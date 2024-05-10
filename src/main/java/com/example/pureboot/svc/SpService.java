@@ -36,9 +36,11 @@ public class SpService {
     }
 
     public void addSp(String spCode,String spName){
-        Sp o = Sp.builder().spId(UUID.fromString(spCode+"_"+spName))
+        Sp o = Sp.builder().spId(UUID.randomUUID())
                 .spCode(spCode).spName(spName).dateJoin(LocalDateTime.now())
                 .build();
+        System.out.println("add Sp Service");
+        System.out.println(o);
         pureBootRepo.save(o);
     }
 

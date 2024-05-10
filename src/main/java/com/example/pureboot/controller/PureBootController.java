@@ -20,32 +20,34 @@ public class PureBootController {
         this.spService = spService;
     }
 
-    @GetMapping("/guy")
-    public List<Sp> getAllGuys(){
+
+    @GetMapping("/sp")
+    public List<Sp> getAllSp(){
         return spService.getAllSp();
     }
 
-    @GetMapping("/guy/{id}")
+    @GetMapping("/sp/{id}")
     public ResponseEntity<Sp> getSingleSp(@PathVariable("id") UUID spId){
         Optional<Sp> s = spService.getSpById(spId);
             return ResponseEntity.ok(s.get());
 
     }
 
-    @PostMapping("/guy")
-    public ResponseEntity<String> addGuy(@RequestBody SpRequest reqBody){
+    @PostMapping("/sp")
+    public ResponseEntity<String> addSp(@RequestBody SpRequest reqBody){
+        System.out.println(reqBody);
         spService.addSp(reqBody.getSpCode(),reqBody.getSpName());
         return ResponseEntity.ok("Done");
     }
 
-    @PatchMapping("/guy/{id}")
-    public ResponseEntity<String> updateGuy(@PathVariable("id") UUID spId, @RequestBody SpRequest reqBody){
+    @PatchMapping("/sp/{id}")
+    public ResponseEntity<String> updateSp(@PathVariable("id") UUID spId, @RequestBody SpRequest reqBody){
         spService.updateSpById(spId, reqBody.getSpCode(), reqBody.getSpName());
         return ResponseEntity.ok("Updated");
     }
 
-    @DeleteMapping("/guy/{id}")
-    public ResponseEntity<String> deleteGuy(@PathVariable("id") UUID spId){
+    @DeleteMapping("/sp/{id}")
+    public ResponseEntity<String> deleteSp(@PathVariable("id") UUID spId){
         spService.removeSp(spId);
         return ResponseEntity.ok("Deleted");
     }
