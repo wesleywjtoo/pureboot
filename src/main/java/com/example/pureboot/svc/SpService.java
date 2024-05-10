@@ -3,6 +3,7 @@ package com.example.pureboot.svc;
 import com.example.pureboot.model.Sp;
 import com.example.pureboot.repo.PureBootRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -17,7 +18,8 @@ public class SpService {
     private PureBootRepo pureBootRepo;
 
     public List<Sp> getAllSp(){
-        return pureBootRepo.findAll();
+        Sort spSort = Sort.by("dateJoin").descending();
+        return pureBootRepo.findAll(spSort);
     }
 
     public Optional<Sp> getSpById(UUID spId){
